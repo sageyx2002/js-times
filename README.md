@@ -1,6 +1,6 @@
-## timestamps.js
+## times.js
 
-The library `timestamps.js` currently contains the functions listed below. Functionality of this library will be extended over time.
+The library `times.js` currently contains the functions listed below. Functionality of this library will be extended over time.
 
 ### relTime()
 
