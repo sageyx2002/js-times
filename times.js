@@ -25,23 +25,23 @@ function relTime(unix=time) {
     };
 
     const strings = {                                           // all necessary strings are stored here
-        lu: `in ${pdif} milliseconds`,
-        ls: `in ${Math.floor(pdif / t.s)} seconds`,
-        lm: `in ${Math.floor(pdif / t.m)} minutes`,
-        lh: `in ${Math.floor(pdif / t.h)} hours`,
-        ld: `in ${Math.floor(pdif / t.d)} days`,
-        lw: `in ${Math.floor(pdif / t.w)} weeks`,
-        lH: `in ${Math.floor(pdif / t.M)} months`,
-        ly: `in ${Math.floor(pdif / t.y)} years`,
+        lu: `in ${pdif} millisecond(s)`,
+        ls: `in ${Math.floor(pdif / t.s)} second(s)`,
+        lm: `in ${Math.floor(pdif / t.m)} minute(s)`,
+        lh: `in ${Math.floor(pdif / t.h)} hour(s)`,
+        ld: `in ${Math.floor(pdif / t.d)} day(s)`,
+        lw: `in ${Math.floor(pdif / t.w)} week(s)`,
+        lM: `in ${Math.floor(pdif / t.M)} month(s)`,
+        ly: `in ${Math.floor(pdif / t.y)} year(s)`,
         
-        gu: `${pdif} milliseconds ago`,                            
-        gs: `${Math.floor(pdif / t.s)} seconds ago`,
-        gm: `${Math.floor(pdif / t.m)} minutes ago`,
-        gh: `${Math.floor(pdif / t.h)} hours ago`,
-        gd: `${Math.floor(pdif / t.d)} days ago`,
-        gw: `${Math.floor(pdif / t.w)} weeks ago`,
-        gH: `${Math.floor(pdif / t.M)} months ago`,
-        gy: `${Math.floor(pdif / t.y)} years ago`
+        gu: `${pdif} millisecond(s) ago`,                            
+        gs: `${Math.floor(pdif / t.s)} second(s) ago`,
+        gm: `${Math.floor(pdif / t.m)} minute(s) ago`,
+        gh: `${Math.floor(pdif / t.h)} hour(s) ago`,
+        gd: `${Math.floor(pdif / t.d)} day(s) ago`,
+        gw: `${Math.floor(pdif / t.w)} week(s) ago`,
+        gM: `${Math.floor(pdif / t.M)} month(s) ago`,
+        gy: `${Math.floor(pdif / t.y)} year(s) ago`
     };
 
     if (diff < 0) {                                             // comparison to determine whether the time is in the future relative to now
@@ -58,7 +58,7 @@ function relTime(unix=time) {
         } else if (pdif < t.M) {
             return strings.lw;
         } else if (pdif < t.y) {
-            return strings.lH;
+            return strings.lM;
         } else {
             return strings.ly;
         };
@@ -76,7 +76,7 @@ function relTime(unix=time) {
         } else if (pdif < t.M) {
             return strings.gw;
         } else if (pdif < t.y) {
-            return strings.gH;
+            return strings.gM;
         } else {
             return strings.gy;
         };
