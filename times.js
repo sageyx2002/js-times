@@ -24,24 +24,31 @@ function relTime(unix=time) {
         y: 31556952000                                          // [y]ear   (precisely 365.2425 days long)
     };
 
+    const d = [t.s, t.m, t.h, t.d, t.w, t.M, t.y];              // array for the some() search
+    var s = "s";                                                // sets the default string return to plural, adding an s in every return string
+
+    if (d.some(val => pdif / val === 1) || pdif === 1) {        // if the string's value is 1 changes return string from plural to singular
+        s = "";
+    }
+
     const strings = {                                           // all necessary strings are stored here
-        lu: `in ${pdif} millisecond(s)`,
-        ls: `in ${Math.floor(pdif / t.s)} second(s)`,
-        lm: `in ${Math.floor(pdif / t.m)} minute(s)`,
-        lh: `in ${Math.floor(pdif / t.h)} hour(s)`,
-        ld: `in ${Math.floor(pdif / t.d)} day(s)`,
-        lw: `in ${Math.floor(pdif / t.w)} week(s)`,
-        lM: `in ${Math.floor(pdif / t.M)} month(s)`,
-        ly: `in ${Math.floor(pdif / t.y)} year(s)`,
+        lu: `in ${pdif} millisecond${s}`,
+        ls: `in ${Math.floor(pdif / t.s)} second${s}`,
+        lm: `in ${Math.floor(pdif / t.m)} minute${s}`,
+        lh: `in ${Math.floor(pdif / t.h)} hour${s}`,
+        ld: `in ${Math.floor(pdif / t.d)} day${s}`,
+        lw: `in ${Math.floor(pdif / t.w)} week${s}`,
+        lM: `in ${Math.floor(pdif / t.M)} month${s}`,
+        ly: `in ${Math.floor(pdif / t.y)} year${s}`,
         
-        gu: `${pdif} millisecond(s) ago`,                            
-        gs: `${Math.floor(pdif / t.s)} second(s) ago`,
-        gm: `${Math.floor(pdif / t.m)} minute(s) ago`,
-        gh: `${Math.floor(pdif / t.h)} hour(s) ago`,
-        gd: `${Math.floor(pdif / t.d)} day(s) ago`,
-        gw: `${Math.floor(pdif / t.w)} week(s) ago`,
-        gM: `${Math.floor(pdif / t.M)} month(s) ago`,
-        gy: `${Math.floor(pdif / t.y)} year(s) ago`
+        gu: `${pdif} millisecond${s} ago`,                            
+        gs: `${Math.floor(pdif / t.s)} second${s} ago`,
+        gm: `${Math.floor(pdif / t.m)} minute${s} ago`,
+        gh: `${Math.floor(pdif / t.h)} hour${s} ago`,
+        gd: `${Math.floor(pdif / t.d)} day${s} ago`,
+        gw: `${Math.floor(pdif / t.w)} week${s} ago`,
+        gM: `${Math.floor(pdif / t.M)} month${s} ago`,
+        gy: `${Math.floor(pdif / t.y)} year${s} ago`
     };
 
     if (diff < 0) {                                             // comparison to determine whether the time is in the future relative to now
